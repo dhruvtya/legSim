@@ -211,3 +211,7 @@ include_directories(
 add_executable(height_test src/height_test.cpp)
 target_link_libraries(height_test ${catkin_LIBRARIES})
 add_dependencies(height_test leg_sim_generate_messages_cpp)
+
+add_executable(height_ik src/height_ik.cpp)
+target_link_libraries(height_ik ${catkin_LIBRARIES})
+add_dependencies(height_ik leg_sim_generate_messages_cpp)
