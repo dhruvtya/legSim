@@ -215,3 +215,7 @@ add_dependencies(height_test leg_sim_generate_messages_cpp)
 add_executable(height_ik src/height_ik.cpp)
 target_link_libraries(height_ik ${catkin_LIBRARIES})
 add_dependencies(height_ik leg_sim_generate_messages_cpp)
+
+add_executable(loco_angle_ik src/loco_angle_ik.cpp)
+target_link_libraries(loco_angle_ik ${catkin_LIBRARIES})
+add_dependencies(loco_angle_ik leg_sim_generate_messages_cpp)
