@@ -28,16 +28,16 @@
     </joint>
     <link name="standing_link">
         <visual>
-            <origin xyz="0.25 0 0" rpy="0 0 0" />
+            <origin xyz="0.325 0 0" rpy="0 0 0" />
             <geometry>
-                <box size="0.50 0.05 0.05" />
+                <box size="0.65 0.05 0.05" />
             </geometry>
             <material name="grey" />
         </visual>
         <collision>
-            <origin xyz="0.25 0 0" rpy="0 0 0" />
+            <origin xyz="0.325 0 0" rpy="0 0 0" />
             <geometry>
-                <box size="0.50 0.05 0.05" />
+                <box size="0.65 0.05 0.05" />
             </geometry>
         </collision>
         
@@ -76,7 +76,7 @@
     <joint name="robot_base_joint" type="fixed">
         <parent link="standing_link" />
         <child link="robot_base_link" />
-        <origin xyz="0.4 0.05 0" rpy="0 1.57075 0" />
+        <origin xyz="0.6 0.05 0" rpy="0 1.57075 0" />
         <!--limit effort="1000.0" lower="0.0" upper="0.5" velocity="0.5" /-->
         <axis xyz="0 0 1" />
     </joint>
@@ -217,7 +217,6 @@
         <color rgba="0.6 0.6 0.6 1" />
     </material>
     
-
     <transmission name="trans_l_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="l_joint">
