@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="rvizconfig" default="$(find leg_sim)/rviz/one_leg_test.rviz" />
+
+	<!--include file="$(find leg_sim)/launch/gazebo.launch"/-->
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
+
+	<node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher" respawn="false" output="screen">
+		<remap from="/joint_states" to="/one_leg/joint_states"/>
+	</node>
+
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find leg_sim)/urdf/one_leg_basic.urdf"/>
+
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+        args="-z 1.0 -unpause -urdf -model robot -param robot_description" respawn="false" output="screen" />
+
+	<node pkg="joint_state_publisher" type="joint_state_publisher"  name="joint_state_publisher" respawn="false" output="screen">
+		<remap from="/joint_states" to="/one_leg/joint_states"/>
+	</node>
+
+
+</launch>
